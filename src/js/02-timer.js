@@ -25,14 +25,13 @@ const options = {
   
     onClose(selectedDates) {
         choiseDate = selectedDates[0];
-        button.disabled = false;
+          button.disabled = false;
         if (choiseDate.getTime() <= Date.now()) {
             Report.failure(`Sorry, you pick unavailable date`, `Please choose a date in the future`, 'Okay');
             // Notify.failure('Qui timide rogat docet negare');
             button.disabled = true;
             return
         }
-      
     },
 };
 const calendarCreate = flatpickr(textInput, options);
@@ -53,16 +52,16 @@ function diferenceTimerStart() {
   
     if (!choiseDate || timerisActive) {
         clearInterval(timerInterval);
-        button.textContent = `Start`;
-          textInput.disabled = false;
-           timerisActive = false;
+      button.textContent = `Start`;
+        textInput.disabled = false;
+        timerisActive = false;
         return
     }
     timerInterval = setInterval(onStartBtnClick, 1000);
     textInput.disabled = true;
     timerisActive = true;
-    button.textContent = `Stop`;
-      return timerInterval;
+  button.textContent = `Stop`;
+    return timerInterval;
 };
     
 function addLeadingZero(value) {
