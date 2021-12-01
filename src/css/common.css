@@ -21,6 +21,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 40px;
 }
 
 .field {
@@ -28,6 +29,9 @@ img {
 }
 .value {
   font-size: 60px;
+}
+.label {
+  font-size: 20px;
 }
 #datetime-picker {
   height: 35px;

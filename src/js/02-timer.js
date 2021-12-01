@@ -39,13 +39,19 @@ const calendarCreate = flatpickr(textInput, options);
 button.addEventListener(`click`, diferenceTimerStart)
 
 function onStartBtnClick() {
-   
-    diference = choiseDate.getTime() - Date.now();
-    convertDiference = convertMs(diference)
-      timerDays.textContent = convertDiference.days ;
-      timerHours.textContent = convertDiference.hours ;
-      timerMinutes.textContent = convertDiference.minutes ;
-      timerSeconds.textContent = convertDiference.seconds;
+  
+  diference = choiseDate.getTime() - Date.now();
+  convertDiference = convertMs(diference)
+  timerDays.textContent = convertDiference.days ;
+  timerHours.textContent = convertDiference.hours ;
+  timerMinutes.textContent = convertDiference.minutes ;
+  timerSeconds.textContent = convertDiference.seconds;
+  if (diference <= 1000)
+  {
+    clearInterval(timerInterval)
+     Report.success(`Time is end`, `Please stop timer and choose a new date`, 'Okay')
+  }
+  return
 }
 
 function diferenceTimerStart() {
@@ -56,7 +62,7 @@ function diferenceTimerStart() {
         textInput.disabled = false;
         timerisActive = false;
         return
-    }
+  }
     timerInterval = setInterval(onStartBtnClick, 1000);
     textInput.disabled = true;
     timerisActive = true;
