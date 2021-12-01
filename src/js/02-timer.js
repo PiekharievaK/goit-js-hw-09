@@ -42,17 +42,23 @@ function onStartBtnClick() {
   
   diference = choiseDate.getTime() - Date.now();
   convertDiference = convertMs(diference)
-  timerDays.textContent = convertDiference.days ;
-  timerHours.textContent = convertDiference.hours ;
-  timerMinutes.textContent = convertDiference.minutes ;
-  timerSeconds.textContent = convertDiference.seconds;
-  if (diference <= 1000)
+  timerDays.textContent = returnToTimeField(convertDiference.days) ;
+  timerHours.textContent = returnToTimeField(convertDiference.hours) ;
+  timerMinutes.textContent = returnToTimeField(convertDiference.minutes) ;
+  timerSeconds.textContent = returnToTimeField(convertDiference.seconds);
+  if (diference <= 0)
   {
     clearInterval(timerInterval)
      Report.success(`Time is end`, `Please stop timer and choose a new date`, 'Okay')
   }
   return
 }
+function returnToTimeField(convertNumber) {
+  const number = convertNumber > 0 ? convertNumber : '00';
+
+  return number;
+}
+
 
 function diferenceTimerStart() {
   
